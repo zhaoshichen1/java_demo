@@ -4,6 +4,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 
 /**
  * 实现Tomcat内部Servlet之间的request转发
@@ -30,8 +32,17 @@ public class ForwardSenderServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
+    /**
+     * 使用include进行多次转发，response顺序输出
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        request.setAttribute("testK", "testV");
+        request.getRequestDispatcher("ForwardReceiverServlet").include(request, response);
+        request.getRequestDispatcher("ForwardReceiverServlet2").include(request, response);
     }
 }

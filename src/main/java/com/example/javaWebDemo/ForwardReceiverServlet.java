@@ -15,6 +15,6 @@ public class ForwardReceiverServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        response.getWriter().write("Got Param:" + request.getParameter("testK")+"\n");
     }
 }

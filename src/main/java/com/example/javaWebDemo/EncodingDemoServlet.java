@@ -76,7 +76,7 @@ public class EncodingDemoServlet extends HttpServlet {
         if(data == null){
             data = "request error";
         }
-        resp.setCharacterEncoding(UTF8_Encoding);
+        resp.setContentType("text/html;charset=UTF-8");
         resp.getWriter().write(data);
     }
 
