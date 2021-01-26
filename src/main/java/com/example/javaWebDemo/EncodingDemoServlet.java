@@ -6,7 +6,9 @@ import javax.servlet.annotation.*;
 
 @WebServlet(name = "encodingServlet", value = "/encoding-servlet", loadOnStartup=1)
 
-// 主要演示从request中获取中文参数遇到的编码问题和解决方式
+/**
+ * 主要演示从request中获取中文参数以及从response输出中文时所遇到的编码问题和解决方式，
+ */
 public class EncodingDemoServlet extends HttpServlet {
 
     private String UTF8_Encoding = "UTF-8";

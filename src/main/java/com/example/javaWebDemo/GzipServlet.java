@@ -7,6 +7,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.zip.GZIPOutputStream;
 
+/**
+ * 通过gzip压缩输出文本的实现
+ */
 @WebServlet(name = "GzipServlet", value = "/GzipServlet")
 public class GzipServlet extends HttpServlet {
 

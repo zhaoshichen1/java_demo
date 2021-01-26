@@ -8,6 +8,6 @@
 <h1><%= "Hello World!" %>
 </h1>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
+<a href="AntiLeechServlet">模拟需要设置防盗链的资源</a>
 </body>
 </html>

@@ -5,15 +5,16 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "TickServlet", value = "*.php")
-public class TickServlet extends HttpServlet {
+@WebServlet(name = "ForwardReceiverServlet", value = "/ForwardReceiverServlet")
+public class ForwardReceiverServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(this.getServletContext().getAttribute("k"));
+        String value = (String)(request.getAttribute("testK"));
+        response.getWriter().write("Got:"+value+" Req:"+request.getParameter("testK"));
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doGet(request, response);
+
     }
 }

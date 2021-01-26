@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.net.URLEncoder;
 
 @WebServlet(name = "FileServlet", value = "/FileServlet")
+
+/**
+ * 通过response下发文件字节流的实现
+ */
 public class FileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
