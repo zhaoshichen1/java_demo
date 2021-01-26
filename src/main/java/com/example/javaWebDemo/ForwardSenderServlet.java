@@ -33,6 +33,12 @@ public class ForwardSenderServlet extends HttpServlet {
     }
 
     /**
+     * curl -X POST \
+     *   http://localhost:8080/javaWebDemo_war_exploded/ForwardSenderServlet \
+     *   -H 'Content-Type: application/x-www-form-urlencoded' \
+     *   -H 'Postman-Token: 87c34026-c9d6-49ff-aeed-84b124b5805c' \
+     *   -H 'cache-control: no-cache' \
+     *   -d 'testK=recevier%201111&undefined='
      * 使用include进行多次转发，response顺序输出
      * @param request
      * @param response
@@ -42,7 +48,7 @@ public class ForwardSenderServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("testK", "testV");
-        request.getRequestDispatcher("ForwardReceiverServlet").include(request, response);
+        request.getRequestDispatcher("ForwardReceiverServlet1").include(request, response);
         request.getRequestDispatcher("ForwardReceiverServlet2").include(request, response);
     }
 }

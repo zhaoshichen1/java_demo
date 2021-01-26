@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 演示 Tomcat服务器内转发功能的实现 - 负责接收的Servlet2
+ */
 @WebServlet(name = "ForwardReceiverServlet2", value = "/ForwardReceiverServlet2")
 public class ForwardReceiverServlet2 extends HttpServlet {
     @Override

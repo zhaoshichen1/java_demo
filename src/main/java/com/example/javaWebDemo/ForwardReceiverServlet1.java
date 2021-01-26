@@ -5,8 +5,12 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "ForwardReceiverServlet", value = "/ForwardReceiverServlet")
-public class ForwardReceiverServlet extends HttpServlet {
+/**
+ * 演示 Tomcat服务器内转发功能的实现 - 负责接收的Servlet1
+ */
+@WebServlet(name = "ForwardReceiverServlet1", value = "/ForwardReceiverServlet1")
+public class ForwardReceiverServlet1 extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String value = (String)(request.getAttribute("testK"));
