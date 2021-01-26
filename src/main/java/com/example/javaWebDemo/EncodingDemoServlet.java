@@ -13,6 +13,17 @@ public class EncodingDemoServlet extends HttpServlet {
 
     public void init() { }
 
+    /**
+     *      curl -X POST \
+     *      http://localhost:8080/javaWebDemo_war_exploded/encoding-servlet \
+     *      -H 'Content-Type: application/x-www-form-urlencoded' \
+     *      -H 'Postman-Token: ba8d5da4-dacf-4a0a-aace-635b329b53f1' \
+     *      -H 'cache-control: no-cache' \
+     *      -d 'test=%E4%B8%AD%E6%96%87%E6%B5%8B%E8%AF%95&undefined='
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         // 从request中获取中文，因为Tomcat默认是将UTF-8编码的中文再用ISO 8859-1解码;
@@ -43,8 +54,19 @@ public class EncodingDemoServlet extends HttpServlet {
 //        this.writeRes(response, value);
 //    }
 
-    // >=Tomcat 8.0后，URI的默认编码为UTF-8，无需手动设置或者转换
+
+    /**
+     * curl -X GET \
+     *   'http://localhost:8080/javaWebDemo_war_exploded/encoding-servlet?test=321%E5%95%8A' \
+     *   -H 'Content-Type: application/x-www-form-urlencoded' \
+     *   -H 'Postman-Token: a0e2c375-f065-462e-8c11-5cbefd1b543e' \
+     *   -H 'cache-control: no-cache'
+     * @param request
+     * @param response
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        // >=Tomcat 8.0后，URI的默认编码为UTF-8，无需手动设置或者转换
         this.writeRes(response, request.getParameter("test"));
     }
 
@@ -56,6 +78,5 @@ public class EncodingDemoServlet extends HttpServlet {
         resp.getWriter().write(data);
     }
 
-    public void destroy() {
-    }
+    public void destroy() { }
 }
