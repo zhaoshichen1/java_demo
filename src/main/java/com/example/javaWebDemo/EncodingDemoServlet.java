@@ -1,7 +1,5 @@
 package com.example.javaWebDemo;
 
-import com.sun.tools.classfile.ConstantPool;
-
 import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -12,7 +10,6 @@ import javax.servlet.annotation.*;
 public class EncodingDemoServlet extends HttpServlet {
 
     private String UTF8_Encoding = "UTF-8";
-    private String ISO_Encoding = "ISO8859-1";
 
     public void init() { }
 
