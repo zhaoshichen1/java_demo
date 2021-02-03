@@ -9,5 +9,7 @@
 </h1>
 <br/>
 <a href="AntiLeechServlet">模拟需要设置防盗链的资源</a>
+<br/>
+同时在线人数:${num}
 </body>
 </html>

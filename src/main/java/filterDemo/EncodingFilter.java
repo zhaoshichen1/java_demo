@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * 建立一个过滤器，用于再全局范围内对request和response的编码规则进行指定为UTF-8，避免中文乱码问题
  */
-@WebFilter(filterName = "EncodingFilter", urlPatterns = "/*")
+@WebFilter(filterName = "EncodingFilter", servletNames = "EncodingFilterServlet")
 public class EncodingFilter implements Filter {
 
     final String utf8 = "UTF-8";
