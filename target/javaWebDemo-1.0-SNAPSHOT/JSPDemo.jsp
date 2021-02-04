@@ -32,6 +32,7 @@
 </jsp:scriptlet>
 <%--3.2 写法2 推荐，include其他JSP --%>
 <jsp:directive.include file="ToIncludeDemo.jsp"/>
+<br/>
 
 <%-- 4.JSP标签/行为，见ForwardSourceDemo/ForwardTargetDemo --%>
 

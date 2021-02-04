@@ -16,6 +16,8 @@
 <br/>
 <a href="ForwardSourceDemo.jsp">测试JSP标签 Forward内部转发</a>
 <br/>
+<a href="JavaBeanFormDemo.jsp">测试Java Bean表单赋值</a>
+<br/>
 同时在线人数:${num}
 <br/>
 </body>
