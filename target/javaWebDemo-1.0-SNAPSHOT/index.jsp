@@ -10,6 +10,13 @@
 <br/>
 <a href="AntiLeechServlet">模拟需要设置防盗链的资源</a>
 <br/>
+<a href="JSPDemo.jsp">跳转去JSP Demo页面</a>
+<br/>
+<a href="JSPDemo.jsp?name=1">跳转去JSP模拟error的情况</a>
+<br/>
+<a href="ForwardSourceDemo.jsp">测试JSP标签 Forward内部转发</a>
+<br/>
 同时在线人数:${num}
+<br/>
 </body>
 </html>
