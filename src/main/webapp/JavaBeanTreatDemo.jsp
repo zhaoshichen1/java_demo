@@ -20,9 +20,12 @@
 
 <%-- 声明一个Person的对象p --%>
 <jsp:useBean id="p" class="javaBeanDemo.Person" scope="page"/>
+
 <%-- 自动通过body中的参数进行匹配，填入p对象中；实际上通过setter操作 --%>
 <jsp:setProperty name="p" property="age"/>
 <jsp:setProperty name="p" property="name"/>
+
+<%-- 输出，实际上通过getter操作--%>
 年龄为:<jsp:getProperty name="p" property="age"/><br/>
 姓名为:<jsp:getProperty name="p" property="name"/>
 </body>

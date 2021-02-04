@@ -18,6 +18,8 @@
 <br/>
 <a href="JavaBeanFormDemo.jsp">测试Java Bean表单赋值</a>
 <br/>
+<a href="JSTLDemo.jsp">JSTL 遍历操作</a>
+<br/>
 同时在线人数:${num}
 <br/>
 </body>
