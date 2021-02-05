@@ -2,13 +2,19 @@ package JDBCDemo;
 
 import java.sql.*;
 
+/**
+ * 演示使用PrepareStatement批量执行插入语句
+ * 并且演示如何通过getGeneratedKeys获取刚刚插入的主键id（用于关联表的插入）
+ */
 public class PrepareStatementBatchDemo {
     public static void main(String[] args){
         try {
             Connection c = JDBCUtils.getConnection(false);
 
             // 需要获取主键时，需要声明
-            PreparedStatement ps = c.prepareStatement("INSERT INTO jdbc_test (testName, testAge) VALUES (?, ?)", Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = c.prepareStatement(
+                    "INSERT INTO jdbc_test (testName, testAge) VALUES (?, ?)",
+                    Statement.RETURN_GENERATED_KEYS);
 
             int[] ages = new int[]{1,2,3,4,5,66};
             String[] names = new String[]{"n1","n2","n3","n4","n5","n66"};
@@ -19,10 +25,8 @@ public class PrepareStatementBatchDemo {
                 ps.setInt(2, ages[i]);
                 ps.addBatch();
             }
-            // 执行
-            ps.executeBatch();
-            // 清空
-            ps.clearBatch();
+            ps.executeBatch();     // 执行
+            ps.clearBatch();       // 清空
 
             // 获取刚刚插入的主键
             ResultSet rs = ps.getGeneratedKeys();

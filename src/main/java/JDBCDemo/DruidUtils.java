@@ -44,30 +44,59 @@ public class DruidUtils {
         return dataSource.getConnection();
     }
 
-    // 用于一条更新的情况，由于列的类型不同所以用Object
-    public static void update(String sql, Object[] args) throws SQLException {
-        Connection c = getConnection();
-        PreparedStatement ps = c.prepareStatement(sql);
-        for(int i=0;i<args.length;i++){
-            ps.setObject(i+1, args[i]);
+
+
+    /**
+     * 用于一条更新的情况，由于列的类型不同所以用Object
+     * @param sql
+     * @param args 参数
+     * @return 更新的行数
+     */
+    public static int update(String sql, Object[] args)  {
+        Connection c = null;
+        PreparedStatement ps = null;
+        try {
+            c = getConnection();
+            ps = c.prepareStatement(sql);
+            for(int i=0;i<args.length;i++){
+                ps.setObject(i+1, args[i]);
+            }
+            return ps.executeUpdate();
+        } catch(SQLException e){
+             e.printStackTrace();
+             return 0;
+        } finally{ // 释放资源，确保在发生异常时依然会释放资源
+            release(c, ps, null);
         }
-        ps.executeUpdate();
-        release(c, ps, null);
     }
 
-    // 返回一个任意类型的数组，需要外接传入Handler将一行数据转化为一个对象
-    public static List<Object> select(String sql, Object[] args, ResultSetHandler handler) throws SQLException {
-        Connection c = getConnection();
-        PreparedStatement ps = c.prepareStatement(sql);
-        for(int i=0;i<args.length;i++){
-            ps.setObject(i+1, args[i]);
-        }
-        ResultSet rs = ps.executeQuery();
+    /**
+     *
+     * @param sql
+     * @param args 参数
+     * @param handler 处理ResultSet的逻辑，转换为一个JavaBean对象
+     * @return 返回一个任意类型的数组，需要外接传入Handler将一行数据转化为一个对象
+     */
+    public static List<Object> select(String sql, Object[] args, ResultSetHandler handler) {
+        Connection c = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
         List<Object> result = new ArrayList<>();
-        while(rs.next()){
-            result.add(handler.handle(rs));
+        try{
+            c = getConnection();
+            ps = c.prepareStatement(sql);
+            for(int i=0;i<args.length;i++){
+                ps.setObject(i+1, args[i]);
+            }
+            rs = ps.executeQuery();
+            while(rs.next()){
+                result.add(handler.handle(rs));
+            }
+        } catch(SQLException e){
+            e.printStackTrace();
+        } finally { // 确保会释放资源
+            release(c, ps, rs);
         }
-        release(c, ps, rs);
         return result;
     }
 
