@@ -18,10 +18,8 @@ import java.util.Properties;
 public class DruidUtils {
     //    创建数据源对象
     private static DataSource dataSource;
-
     static {
-
-//        新建一个配置文件对象
+        // 新建一个配置文件对象
         Properties pro = new Properties();
         try {
             InputStream in = new FileInputStream("src/main/resources/db.properties");
