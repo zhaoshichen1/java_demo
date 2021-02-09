@@ -17,6 +17,7 @@
     </properties>
 
     <dependencies>
+        <!-- Servlet的依赖 -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -35,6 +36,8 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- JSP的依赖 -->
         <dependency>
             <groupId>javax.servlet.jsp.jstl</groupId>
             <artifactId>jstl-api</artifactId>
@@ -45,11 +48,15 @@
             <artifactId>standard</artifactId>
             <version>1.1.2</version>
         </dependency>
+
+        <!-- JDBC的依赖 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>[5.1.25,)</version>
         </dependency>
+
+        <!-- Druid的依赖 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
@@ -60,7 +67,15 @@
             <artifactId>aspectjweaver</artifactId>
             <version>1.8.12</version>
         </dependency>
+
+        <!-- Spring的依赖 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.2.5.RELEASE</version>
+        </dependency>
     </dependencies>
+
 
     <build>
         <plugins>

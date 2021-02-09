@@ -11,7 +11,8 @@ import java.util.ListIterator;
 public class ConcurrentModificationExceptionDemo {
     public static void main(String[] args){
         List<Integer> l = new ArrayList<>();
-        l.add(1);l.add(2);
+        l.add(1);
+        l.add(2);
 
         // reproduceException(new ArrayList(l));
         iteratorMethod(new ArrayList(l));
@@ -22,14 +23,14 @@ public class ConcurrentModificationExceptionDemo {
      * 使用Iterator遍历的过程中修改列表，引起异常
      * @param a
      */
-    public static void reproduceException(List<Integer> a){
-        Iterator<Integer> it = a.iterator();
-        while (it.hasNext()){
-            if(it.next() == 1){
-                a.add(3);
-            }
-        }
-    }
+//    public static void reproduceException(List<Integer> a){
+//        Iterator<Integer> it = a.iterator();
+//        while (it.hasNext()){
+//            if(it.next() == 1){
+//                a.add(3);
+//            }
+//        }
+//    }
 
     public static void iteratorMethod(List<Integer> a){
         ListIterator<Integer> it = a.listIterator(); // 需要用listIterator,不然没有add方法
