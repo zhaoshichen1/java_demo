@@ -7,8 +7,11 @@
     <groupId>com.example</groupId>
     <artifactId>javaWebDemo</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>SpringAOPDemo</module>
+    </modules>
     <name>javaWebDemo</name>
-    <packaging>war</packaging>
+    <packaging>pom</packaging>
 
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -74,6 +77,12 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
+            <version>5.2.5.RELEASE</version>
+        </dependency>
+        <!-- Spring Aspectj的依赖 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
             <version>5.2.5.RELEASE</version>
         </dependency>
     </dependencies>
