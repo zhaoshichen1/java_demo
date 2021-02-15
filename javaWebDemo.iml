@@ -16,6 +16,19 @@
         </sourceRoots>
       </configuration>
     </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/SpringXMLDemo/XMLAutowire.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/SpringXMLDemo/XMLConstructorDemo.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/SpringXMLDemo/AutowireByType.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/SpringXMLDemo/XMLSetterDemo.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/SpringAnnotationDemo/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/SpringXMLDemo/AutowireByName.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />

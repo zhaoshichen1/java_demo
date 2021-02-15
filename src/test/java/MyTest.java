@@ -26,7 +26,7 @@ public class MyTest {
     @Test
     public void testXMLSet(){
         // 从classes路径开始加载配置文件
-        ApplicationContext ac = new ClassPathXmlApplicationContext("SpringDemo/XMLSetterDemo.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("SpringXMLDemo/XMLSetterDemo.xml");
 
         XMLSetterDemo xsd = (XMLSetterDemo) ac.getBean("demo");
 
@@ -40,7 +40,7 @@ public class MyTest {
     @Test
     public void testXMLConstructor(){
         // 从classes路径开始加载配置文件
-        ApplicationContext ac = new ClassPathXmlApplicationContext("SpringDemo/XMLConstructorDemo.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("SpringXMLDemo/XMLConstructorDemo.xml");
 
         XMLConstructorDemo xsd = (XMLConstructorDemo) ac.getBean("demo");
 
@@ -54,7 +54,7 @@ public class MyTest {
     @Test
     public void testXMLAutowireByName(){
         // 从classes路径开始加载配置文件
-        ApplicationContext ac = new ClassPathXmlApplicationContext("SpringDemo/XMLAutowire.xml");
+        ApplicationContext ac = new ClassPathXmlApplicationContext("SpringXMLDemo/XMLAutowire.xml");
 
         // 获取autowire=byName的实例
         XMLAutowireByName xsd = (XMLAutowireByName) ac.getBean("demoName");
@@ -63,6 +63,13 @@ public class MyTest {
         // 获取autowire=byType的实例
         XMLAutowireByType xdbt = (XMLAutowireByType) ac.getBean("demoType");
         System.out.println(xdbt);
+    }
+
+    @Test
+    public void testAnnotationDemo(){
+        ApplicationContext ac = new ClassPathXmlApplicationContext("SpringAnnotationDemo/applicationContext.xml");
+        AnnotationDemo atd = (AnnotationDemo) ac.getBean("atDemo");
+        System.out.println(atd);
     }
 
 }
