@@ -27,7 +27,7 @@ public class AnnotationDemo {
     private Animal animal;
 
     // 自动引入的另一种写法（JDK提供），默认逻辑是优先byName，再byType
-    @Resource
+    @Resource(name = "car2")
     private Car car;
 
     @Override
