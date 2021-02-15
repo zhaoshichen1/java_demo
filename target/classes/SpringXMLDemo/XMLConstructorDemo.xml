@@ -2,11 +2,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="demo" class="SpringDemo.XMLConstructorDemo">
+    <bean id="demo" class="SpringIOCDemo.XMLConstructorDemo">
         <constructor-arg name="n" value="测试名称"></constructor-arg>
         <constructor-arg name="s" ref="mySchool"></constructor-arg>
     </bean>
-    <bean id="mySchool" class="SpringDemo.School">
+    <bean id="mySchool" class="SpringIOCDemo.School">
         <property name="location" value="苏州"></property>
     </bean>
 </beans>

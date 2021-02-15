@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="demoType" class="SpringDemo.XMLAutowireByType" autowire="byType">
+    <bean id="demoType" class="SpringIOCDemo.XMLAutowireByType" autowire="byType">
         <property name="name" value="testName"></property>
     </bean>
 </beans>

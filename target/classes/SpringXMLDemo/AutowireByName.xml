@@ -2,10 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="demoName" class="SpringDemo.XMLAutowireByName" autowire="byName">
+    <bean id="demoName" class="SpringIOCDemo.XMLAutowireByName" autowire="byName">
         <property name="name" value="testName"></property>
     </bean>
-    <bean id="myPrimarySchool" class="SpringDemo.PrimarySchool">
+    <bean id="myPrimarySchool" class="SpringIOCDemo.PrimarySchool">
         <property name="location" value="海南"></property>
     </bean>
 </beans>

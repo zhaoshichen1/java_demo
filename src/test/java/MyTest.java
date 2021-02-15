@@ -1,4 +1,4 @@
-import SpringDemo.*;
+import SpringIOCDemo.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

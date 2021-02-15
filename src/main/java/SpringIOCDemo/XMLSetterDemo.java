@@ -1,4 +1,4 @@
-package SpringDemo;
+package SpringIOCDemo;
 
 /**
  * 演示使用XML的Setter对成员属性进行赋值

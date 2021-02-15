@@ -1,4 +1,4 @@
-package SpringDemo;
+package SpringIOCDemo;
 
 /**
  * 演示使用Autowire ByName对引用对象进行赋值
