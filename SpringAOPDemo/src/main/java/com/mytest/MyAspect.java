@@ -1,8 +1,12 @@
 package com.mytest;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
+
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * 定义一个切面类，用于定义切面方法
@@ -18,10 +22,6 @@ public class MyAspect {
     @AfterReturning(value = "execution(public * com.mytest.*.do*(..))", returning = "res")
     public void doLog(Object res){
         System.out.println("[AfterReturning]---模拟记录Log，返回值="+res);
-        if (res != null){
-            res = 88;
-            System.out.println("[AfterReturning]--我修改了obj,"+res);
-        }
     }
 
     // 所有当前包的任意类中 public的任意方法都执行
@@ -34,5 +34,23 @@ public class MyAspect {
         for(Object a: args){
             System.out.println(a);
         }
+    }
+
+    /**
+     * 针对UgcService类中的start方法，定义around逻辑：比如记录方法执行所用的时间
+     * @param pjp
+     */
+    @Around("execution(public * com.mytest.UgcService.start(..))")
+    public void aroundTest(ProceedingJoinPoint pjp) throws Throwable {
+        Date since = new Date();
+
+        // 执行目标方法
+        pjp.proceed();
+
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(since);
+        long time1 = cal.getTimeInMillis();
+        cal.setTime(new Date());
+        System.out.println(pjp.getSignature().getName()+"方法执行耗时ms："+(cal.getTimeInMillis()-time1));
     }
 }
