@@ -9,16 +9,11 @@ public class AOPTest {
     @Test
     public void testMyAspect(){
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
-        MediaService pgc = (MediaService)ac.getBean("pgcService");
-        pgc.start();
-        pgc.doSome();
-        pgc.doOther();
-        pgc.destroy();
 
         MediaService ugc = (MediaService)ac.getBean("ugcService");
         ugc.start();
-        ugc.doSome();
-        ugc.doOther();
+        ugc.doSome(88);
+        System.out.println("doOther的返回值："+ugc.doOther());
         ugc.destroy();
 
     }

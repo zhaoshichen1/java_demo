@@ -18,12 +18,13 @@ public class UgcService implements MediaService {
     }
 
     @Override
-    public void doSome() {
+    public void doSome(int a) {
         System.out.println("com.mytest.UgcService doSome方法");
     }
 
     @Override
-    public void doOther() {
+    public int doOther() {
         System.out.println("com.mytest.UgcService doOther方法");
+        return 22;
     }
 }

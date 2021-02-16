@@ -6,6 +6,6 @@ public interface MediaService {
     public void destroy();
 
     // 业务逻辑
-    public void doSome();
-    public void doOther();
+    public void doSome(int a);
+    public int doOther();
 }
