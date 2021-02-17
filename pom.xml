@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>SpringAOPDemo</module>
+        <module>untitled</module>
     </modules>
     <name>javaWebDemo</name>
     <packaging>pom</packaging>
