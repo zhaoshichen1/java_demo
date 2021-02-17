@@ -2,6 +2,9 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
+/**
+ * 展示三种不同的方式创建新的线程
+ */
 public class ThreadCreation {
     public static void main(String[] args){
         // 1. 通过继承Thread创建线程
