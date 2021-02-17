@@ -6,6 +6,9 @@ import java.util.concurrent.atomic.AtomicLong;
 public class MyTest {
     @Test
     public void testInner(){
+
     }
 }
+
+
 

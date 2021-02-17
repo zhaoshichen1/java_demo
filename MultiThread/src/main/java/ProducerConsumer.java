@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProducerConsumer {
 
@@ -8,8 +10,10 @@ public class ProducerConsumer {
         List<Integer> stock = new ArrayList<>();
         Thread t1 = new Thread(new Producer(5,stock));
         Thread t2 = new Thread(new Consumer(5, stock));
+        t1.setPriority(3);
         t1.start();
         t2.start();
+
     }
 }
 
@@ -24,6 +28,7 @@ class Producer implements Runnable {
 
     @Override
     public void run(){
+
         Random r = new Random();
         while(true){ // 死循环，持续生产
             try {
@@ -60,16 +65,20 @@ class Consumer implements Runnable {
         this.stock = l;
     }
 
+    AtomicBoolean c = new AtomicBoolean(false);
+
+
     @Override
     public void run(){
         Random r = new Random();
         while(true){ // 死循环，持续消费
             try {
-                Thread.sleep(r.nextInt(2000));
+                Thread.sleep(r.nextInt(500));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            synchronized (stock){
+
+            synchronized (new Integer(1)){
                 if(stock.size() <= 0){ // 仓库空了，进入等待状态
                     System.out.println("[消费]仓库无货，进入等待");
                     try {
@@ -87,6 +96,3 @@ class Consumer implements Runnable {
         }
     }
 }
-
-
-
