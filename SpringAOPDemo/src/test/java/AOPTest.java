@@ -11,10 +11,22 @@ public class AOPTest {
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 
         MediaService ugc = (MediaService)ac.getBean("ugcService");
-        ugc.start();
-        ugc.doSome(88);
+        try{
+            ugc.start();
+        } catch (Exception e){
+            System.out.println("Got Exception!!!!!");
+        }
         System.out.println("doOther的返回值："+ugc.doOther());
-        ugc.destroy();
+    }
 
+    @Test
+    public void testException(){
+        try {
+            int a = 3/0;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+        System.out.println("测试运行时异常后面执行不执行");
     }
 }

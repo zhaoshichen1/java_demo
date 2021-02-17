@@ -10,24 +10,10 @@ import java.util.Calendar;
 @Service
 public class UgcService implements MediaService {
     @Override
-    public void start() {
-        try {
-            Thread.sleep(18);
-        } catch( InterruptedException e){
-            e.printStackTrace();
-            return;
-        }
+    public void start() throws InterruptedException,ArithmeticException {
+        Thread.sleep(18);
+        int a = 3/0;
         System.out.println("com.mytest.UgcService 初始化");
-    }
-
-    @Override
-    public void destroy() {
-        System.out.println("com.mytest.UgcService 关闭");
-    }
-
-    @Override
-    public void doSome(int a) {
-        System.out.println("com.mytest.UgcService doSome方法");
     }
 
     @Override
