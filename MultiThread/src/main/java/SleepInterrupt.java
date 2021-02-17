@@ -18,7 +18,8 @@ public class SleepInterrupt {
             }
         });
         t.start();
-        t.join();
         t.interrupt();
     }
 }
+
+
