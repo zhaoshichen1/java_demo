@@ -27,16 +27,12 @@ class Producer implements Runnable {
         Random r = new Random();
         while(true){ // 死循环，持续生产
             try {
-                Thread.sleep(r.nextInt(3000));
+                Thread.sleep(r.nextInt(1000));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             synchronized (stock){
-                if(stock.size() < stockSize){ // 仓库还没满，可以继续生产
-                    stock.add(1);
-                    stock.notifyAll();
-                    System.out.println("[生产]+1,现有："+stock.size());
-                } else { // 仓库满了，释放stock的锁，进入等待
+                if(stock.size() >= stockSize){ // 仓库满仓等待逻辑
                     try {
                         System.out.println("[生产]已满仓，进入等待");
                         stock.wait();
@@ -45,6 +41,10 @@ class Producer implements Runnable {
                         e.printStackTrace();
                     }
                 }
+                // 仓库有空余位置，继续生产
+                stock.add(1);
+                stock.notifyAll();
+                System.out.println("[生产]+1,现有："+stock.size());
             }
         }
     }
@@ -78,11 +78,11 @@ class Consumer implements Runnable {
                         e.printStackTrace();
                     }
                     System.out.println("[消费]仓库有货，继续消费，现有："+stock.size());
-                } else { // 仓库有货，消费
-                    stock.get(0);
-                    stock.notifyAll();
-                    System.out.println("[消费]仓库有货，消费-1，现有："+stock.size());
                 }
+                // 仓库有货，消费
+                stock.remove(0);
+                stock.notifyAll();
+                System.out.println("[消费]仓库有货，消费-1，现有："+stock.size());
             }
         }
     }
