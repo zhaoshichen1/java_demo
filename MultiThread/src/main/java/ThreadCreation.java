@@ -11,20 +11,12 @@ public class ThreadCreation {
         Thread t1 = new ThreadExtend();
 
         // 2. 通过实现Runnable接口创建线程：较为常用
-        Thread t2 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("实现Runnable接口创建线程");
-            }
-        });
+        Thread t2 = new Thread(() -> System.out.println("实现Runnable接口创建线程"));
 
         // 3. 通过实现Callable接口创建线程并且获取返回值
-        Callable call = new Callable() {
-            @Override
-            public Object call() {
-                System.out.println("实现Callable接口，并且有返回值");
-                return "test";
-            }
+        Callable call = () -> {
+            System.out.println("实现Callable接口，并且有返回值");
+            return "test";
         };
         FutureTask futureTask = new FutureTask(call); // 通过futureTask封装callable为Runnable的实现类
         Thread t3 = new Thread(futureTask);
